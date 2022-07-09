@@ -149,18 +149,19 @@ button{
 #arrows{
   width:100%;
   justify-content: space-between;
+  margin-bottom: var(--margin);
 }
 #landingImg{
-  margin-top: var(--margin);
   width: 100%;
   height: 350px;
+  object-fit: cover;
 }
 #pageInfo{
   margin-left:var(--margin);
   height: 50px;
 }
 .col2{
-  margin-top:var(--margin);
+  margin-top:calc(var(--margin)/2);
   justify-content: space-between
 }
 .col2 div{
