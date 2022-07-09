@@ -91,6 +91,8 @@ img{
   height: 100vh;
   padding: var(--margin) 30px var(--margin) var(--margin);
   z-index: 2;
+}
+.bg{
   background-color: var(--underlay);
 }
 .flex{
@@ -124,7 +126,7 @@ img{
 }
 #content{
   width: 70vw;
-  height: 300vh;
+  height: fit-content;
   background-color: var(--bg);
   padding: var(--margin);
 }

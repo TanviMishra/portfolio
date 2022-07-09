@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./styles/style.css" media="screen" />
+    <title>Tanvi Mishra</title>
+</head>
+<body>
+    <section id="menu"> <!--placeholder menu just for flex to work-->
+        <div id="menuContent" class="bg"> <!-- position fixed-->
+            <div class="flex">  <!-- To do: responsive-->
+                <div id="logo"></div> 
+                <h1><a href="./index.html">Tanvi Mishra</a></h1>
+            </div>
+            <h2 id="activePage"><a href="./project.html"><span class="underline">Project Archive</span> ↗</a></h2>
+            <div class="flex-wrap">
+                <h4><a>Q-Sweeper </a>| </h4>
+                <h4><a>Sheer Contact </a>| </h4>
+                <h4><a>Project Name </a>| </h4>
+                <h4><a>Project Name </a>| </h4>
+                <h4><a>Project Name </a>| </h4>
+                <h4><a>Project Name </a>| </h4>
+                <h4><a>Project Name </a>| </h4>
+            </div>
+            <h2><a href="./info.html">Information ↗</a></h2>
+            <h2><a href="./resume.html">Resume ↗</a></h2>
+            <div id="socials" class="flex">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </section>
+    <section id="content">
+        <button id="theme-toggle"></button> <!--dark/light mode-->
+        <section id="thumbnails"> <!--Thumbnails page-->
+            <div class="thumbnail-wrapper">
+                <img>
+                <h3></h3>
+                <h4></h4>
+            </div>
+        </section>
+        <section id="projectPage"> <!--Projects page-->
+            <div id="arrows" class="flex">
+                <h1>←</h1>
+                <h1>→</h1>
+            </div>
+            <img id="landingImg">
+            <div id="pageInfo">
+                <div class="col2 flex">
+                    <div>
+                        <h2>Sheer Contact</h2>
+                        <h4>Physical Computation | 2022</h4>
+                        <h4><span class="h4bold">College Group Project</span></h4>
+                        <h4><span class="h4bold">Co-creators:</span> Anna Pragman, Krithi Nalla</h4>
+                        <h4><span class="h4bold">Roles:</span> project development, conceptualisation, garment testing, arduino coder, welding </h4>
+                    </div>
+                    <div>
+                        <h4>For this project, we wanted to work with wearable-tech to 
+                        build a tactile, experimental and performative installation 
+                        piece. Using soft sensors and found materials, we created a 
+                        garment that was an intervention model in a speculative 
+                        future. In this future, following a bio-arm war, humans no 
+                        longer touched one another. The garments were built (by an 
+                        outsider) to encourage curious interactions and human 
+                        connection amongst these humans</h4>
+                    </div>
+                </div>
+                <div class="col3 flex">
+                    <h4>Image Documentation</h4>
+                    <div>
+                        <img class="processImg">
+                        <img class="processImg">
+                    </div>
+                    <div>
+                        <img class="processImg">
+                        <img class="processImg">
+                        <img class="processImg">
+                    </div>
+                </div>
+                <div class="col23 flex">
+                    <h4>Video Documentation</h4>
+                    <div id="vid">
+                        <img class="processVid">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+    
+</body>
+<script src="./scripts/main.js"></script>
+</html>

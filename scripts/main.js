@@ -1,6 +1,6 @@
-var toggle = document.getElementById("theme-toggle");
+let toggle = document.getElementById("theme-toggle");
 
-var storedTheme =
+let storedTheme =
   localStorage.getItem("theme") ||
   (window.matchMedia("(prefers-color-scheme: light)").matches
     ? "light"
@@ -9,8 +9,8 @@ if (storedTheme)
   document.documentElement.setAttribute("data-theme", storedTheme);
 
 toggle.onclick = function () {
-  var currentTheme = document.documentElement.getAttribute("data-theme");
-  var targetTheme = "dark";
+  let currentTheme = document.documentElement.getAttribute("data-theme");
+  let targetTheme = "dark";
 
   if (currentTheme === "dark") {
     targetTheme = "light";
