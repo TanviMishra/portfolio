@@ -1,4 +1,5 @@
 let toggle = document.getElementById("theme-toggle");
+let svg = document.getElementById("theme-svg");
 
 let storedTheme =
   localStorage.getItem("theme") ||
@@ -11,11 +12,18 @@ if (storedTheme)
 toggle.onclick = function () {
   let currentTheme = document.documentElement.getAttribute("data-theme");
   let targetTheme = "dark";
-
   if (currentTheme === "dark") {
     targetTheme = "light";
   }
 
   document.documentElement.setAttribute("data-theme", targetTheme);
   localStorage.setItem("theme", targetTheme);
+};
+toggle.onmouseover = function () {
+  toggle.style.marginTop = "-20px";
+  console.log("mouse over");
+};
+toggle.onmouseleave = function () {
+  toggle.style.marginTop = "-65px";
+  console.log("mouse over");
 };

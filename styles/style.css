@@ -2,27 +2,36 @@
 :root {
   --text: #050811;
   --bg: #F6F7FF;
-  --accent:#2FA05B;
-  --highlight:#ECEC79;
-  --underlay:#ecec7908;
+  --accent:#499254;
+  --highlight:#c3da2e;
+  --underlay:#c3da2e2a;
+  --light:  #c3da2e2a;
+  --lightTop: -65px;
   --margin: 5vw;
+  --imgOpacity: 100%;
 }
 html[data-theme='dark'] {
   --bg: #050811;
   --text: #F6F7FF;
-  --accent:#2FA05B;
-  --highlight:#ECEC79;
-  --underlay:#ecec7908;
+  --accent:#499254;
+  --highlight:#c3da2e;
+  --underlay:#DAE59608;
+  --light: #c3da2e;
+  --lightTop: -65px;
   --margin: 5vw;
+  --imgOpacity: 90%;
 }
 
 html[data-theme='light'] {
   --text: #050811;
   --bg: #F6F7FF;
-  --accent:#2FA05B;
-  --highlight:#ECEC79;
-  --underlay:#ecec795c;
+  --accent:#499254;
+  --highlight:#c3da2e;
+  --underlay:#c3da2e2a;
+  --light:  #c3da2e2a;
+  --lightTop: -65px;
   --margin: 5vw;
+  --imgOpacity: 100%;
 }
 * {
   box-sizing: border-box;
@@ -35,7 +44,7 @@ body{
   background-color: var(--bg);
 }
 ::selection {
-  background-color: var(--highlight);
+  color: var(--highlight);
 }
 h1{
   font-weight:700;
@@ -62,7 +71,7 @@ h4{
   margin: 6px 0 0 0;
 }
 .h4bold{
-  font-weight: 500;
+  font-weight: 700;
 }
 p {
   font-weight: 300;
@@ -76,7 +85,7 @@ a:hover{
   color: var(--highlight);
 }
 img{
-  background-color: var(--accent);
+  opacity: var(--imgOpacity);
 }
 #menu{ 
   width: 30vw;
@@ -91,6 +100,19 @@ img{
   height: 100vh;
   padding: var(--margin) 30px var(--margin) var(--margin);
   z-index: 2;
+  background-color: var(--underlay);
+}
+.logos{
+  width: 35px;
+  height:35px;
+  margin-right: 18px;
+  object-fit: cover;
+}
+.logos path{
+  fill: var(--accent);
+}
+.logos:hover path{
+  fill: var(--highlight);
 }
 .bg{
   background-color: var(--underlay);
@@ -108,21 +130,28 @@ img{
 .underline{
   text-decoration: underline;
 }
-#logo{
+#portfolioLogo{
   width: 88px;
   height:88px;
   margin-right: 20px;
-  background-color: var(--accent);
+  object-fit: cover;
+  /* background-color: var(--accent); */
+}
+#portfolioLogo path{
+  fill: var(--accent);
+}
+#portfolioLogo:hover path{
+  fill: var(--highlight);
 }
 #socials{
   position: absolute;
   bottom: var(--margin);
 }
-#socials div{
+#socials img{
   width:35px;
   height: 35px;
-  background-color: var(--accent);
-  margin-right: 30px;
+  margin-right: 18px;
+  object-fit: cover;
 }
 #content{
   width: 70vw;
@@ -139,12 +168,15 @@ button{
   all:unset;
 }
 #theme-toggle{
-  width:50px;
-  height:130px;
-  background-color: var(--accent);
-  position: fixed;
+  width:65px;
+  height:fit-content;
+  position: absolute;
   top:0;
+  margin-top:var(--lightTop);
   right:10px;
+}
+#light{
+  fill: var(--light)
 }
 #arrows{
   width:100%;
@@ -158,29 +190,30 @@ button{
 }
 #pageInfo{
   margin-left:var(--margin);
-  height: 50px;
+  height: fit-content;
 }
 .col2{
   margin-top:calc(var(--margin)/2);
+  margin-bottom:calc(var(--margin)/2);
   justify-content: space-between
 }
 .col2 div{
   width: 45%;
 }
-.col3{
-  margin-top:var(--margin);
-  justify-content: space-between
-}
-.col3 div{
-  width: 35%;
+#processImgContainer{
+  display: flex;
+  flex-wrap: wrap;
 }
 .processImg{
-  margin-bottom: 33px;
-  width:100%;
-  height: 200px;
+  margin-top: 10px;
+  margin-bottom: 18px;
+  margin-right: 3%;
+  width:45%;
+  height: 300px;
+  border: 1px solid var(--accent);
 }
 .col23{
-  margin-top:var(--margin);
+  /* margin-top:var(--margin); */
   justify-content: space-between
 }
 .col23 h4{
@@ -191,6 +224,7 @@ button{
 }
 .processVid{
   width: 100%;
-  height: 400px;
+  height: 350px;
+  border: 1px solid var(--accent);
 }
 
