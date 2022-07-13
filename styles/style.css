@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap');
 :root {
-  --text: #050811;
+  --text: #000000;
   --bg: #F6F7FF;
   --accent:#499254;
   --highlight:#c3da2e;
@@ -11,19 +11,19 @@
   --imgOpacity: 100%;
 }
 html[data-theme='dark'] {
-  --bg: #050811;
+  --bg: #000000;
   --text: #F6F7FF;
   --accent:#499254;
   --highlight:#c3da2e;
-  --underlay:#DAE59608;
+  --underlay:#f6f7ff0a;
   --light: #c3da2e;
   --lightTop: -65px;
   --margin: 5vw;
-  --imgOpacity: 90%;
+  --imgOpacity: 85%;
 }
 
 html[data-theme='light'] {
-  --text: #050811;
+  --text: #000000;
   --bg: #F6F7FF;
   --accent:#499254;
   --highlight:#c3da2e;
@@ -87,6 +87,13 @@ a:hover{
 img{
   opacity: var(--imgOpacity);
 }
+#line-through{
+  text-decoration:line-through;
+}
+#wave-underline{
+  text-decoration-line: underline;
+  text-decoration-style: wavy;
+}
 #menu{ 
   width: 30vw;
   height: 100%;
@@ -116,6 +123,9 @@ img{
 }
 .bg{
   background-color: var(--underlay);
+}
+.fakeLink:hover{
+  color: var(--highlight);
 }
 .flex{
   display: flex;
@@ -206,10 +216,10 @@ button{
 }
 .processImg{
   margin-top: 10px;
-  margin-bottom: 18px;
+  margin-bottom: 22px;
   margin-right: 3%;
   width:45%;
-  height: 300px;
+  height: 250px;
   border: 1px solid var(--accent);
 }
 .col23{
@@ -224,7 +234,8 @@ button{
 }
 .processVid{
   width: 100%;
-  height: 350px;
+  height: 330px;
   border: 1px solid var(--accent);
+  background-color: black;
 }
 

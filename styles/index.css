@@ -21,7 +21,8 @@ img{
     background-color: #bbb;
     border-radius: 50%;
     display: inline-block;
-    transition: background-color .6s ease
+    transition: background-color .6s ease;
+    opacity:0%;
 }
 .active,
 .dot:hover {
