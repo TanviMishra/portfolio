@@ -21,9 +21,7 @@ toggle.onclick = function () {
 };
 toggle.onmouseover = function () {
   toggle.style.marginTop = "-20px";
-  console.log("mouse over");
 };
 toggle.onmouseleave = function () {
   toggle.style.marginTop = "-65px";
-  console.log("mouse over");
 };
