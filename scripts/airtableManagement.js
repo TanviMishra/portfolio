@@ -16,6 +16,8 @@ let desc = document.querySelector("#desc");
 let imgDivContainer = document.querySelector("#processImgContainer");
 let vidDivSection = document.querySelector("#processVidContainer");
 let vidDivContainer = document.querySelector("#vid");
+let photoContainer = document.querySelector("#photoCloseupContainer"); // for zooming in photo
+let photoCloseup = document.querySelector("#photoCloseup");
 
 let searchTitle = "Sheer Contact";
 let projectTitleArray = [];
@@ -60,6 +62,7 @@ xhr.onreadystatechange = function () {
       indexContainer.append(indexBreak);
       //function to display everything in content side
       function displayData(searchTitle) {
+        landingImg.setAttribute("src", "#");
         if (searchTitle == element.fields.Title) {
           if (element.fields.Feature) {
             landingImg.style.display = "block";
@@ -106,6 +109,12 @@ xhr.onreadystatechange = function () {
               imgDiv.setAttribute("class", "processImg");
               imgDiv.setAttribute("src", img.url);
               imgDivContainer.append(imgDiv);
+              imgDiv.addEventListener("click", function () {
+                //zoom function
+                photoContainer.style.display = "block";
+                photoCloseup.setAttribute("src", img.url);
+                console.log("clicked");
+              });
             });
           } else imgDivContainer.style.display = "none";
           vidDivContainer.replaceChildren(); //clear div
@@ -143,3 +152,8 @@ xhr.onreadystatechange = function () {
 // });
 
 xhr.send();
+
+//when zoomed in
+photoContainer.addEventListener("click", function () {
+  photoContainer.style.display = "none";
+});

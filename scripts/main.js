@@ -20,7 +20,7 @@ toggle.onclick = function () {
   localStorage.setItem("theme", targetTheme);
 };
 toggle.onmouseover = function () {
-  toggle.style.marginTop = "-20px";
+  toggle.style.marginTop = "-30px";
 };
 toggle.onmouseleave = function () {
   toggle.style.marginTop = "-65px";
