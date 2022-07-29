@@ -1,6 +1,7 @@
 // airtable api created using curl
 // reference: https://reqbin.com/req/c-1n4ljxb9/curl-get-request-example
 let indexContainer = document.querySelector("#projectIndex");
+let thumbnails = document.querySelector("#thumbnails"); //all thumbnails for project menu
 let previousArrow = document.querySelector("#previous");
 let nextArrow = document.querySelector("#next");
 let landingImg = document.querySelector("#landingImg");
@@ -14,6 +15,7 @@ let roles = document.querySelector("#roles");
 let link = document.querySelector("#link");
 let desc = document.querySelector("#desc");
 let imgDivContainer = document.querySelector("#processImgContainer");
+let mainImgContainer = document.querySelector("#mainImgContainer");
 let vidDivSection = document.querySelector("#processVidContainer");
 let vidDivContainer = document.querySelector("#vid");
 let photoContainer = document.querySelector("#photoCloseupContainer"); // for zooming in photo
@@ -41,7 +43,8 @@ xhr.onreadystatechange = function () {
     result = JSON.parse(xhr.responseText);
     console.log(result);
     result.records.forEach((element) => {
-      displayData(result.records[result.records.length - 1].fields.Title); //Initial display
+      // displayData(result.records[result.records.length - 1].fields.Title); //Initial display
+      displayMenu(); //Initial display
       //project index
       let indexText = document.createElement("h4");
       projectTitleArray.push(element.fields.Title);
@@ -60,8 +63,46 @@ xhr.onreadystatechange = function () {
       indexBreak.innerHTML = "\xa0|\xa0"; //\xa0 is court mandated blank space
       indexContainer.append(indexText);
       indexContainer.append(indexBreak);
+
       //function to display everything in content side
+      //content side - main menu
+      function displayMenu() {
+        thumbnails.style.display = "flex";
+        projectPage.style.display = "none";
+        if (element.fields.Feature) {
+          let containerDiv = document.createElement("div");
+          containerDiv.setAttribute("class", "thumbnail-wrapper");
+          let imgDiv = document.createElement("img");
+          imgDiv.setAttribute("class", "thumbnail-img");
+          imgDiv.setAttribute("src", element.fields.Feature[0].url);
+          let textDiv = document.createElement("div");
+          textDiv.setAttribute("class", "thumbnail-text");
+          let title = document.createElement("h3");
+          title.innerHTML = element.fields.Title;
+          title.style.textTransform = "uppercase";
+          let classify = document.createElement("h4");
+          classify.innerHTML = element.fields.Classification + " | ";
+          classify.innerHTML += element.fields.Year;
+          textDiv.append(title, classify); //layer 1
+          containerDiv.append(imgDiv, textDiv); //layer 2
+          thumbnails.append(containerDiv); //layer 3
+          containerDiv.addEventListener("click", function () {
+            //click to go to project
+            displayData(element.fields.Title);
+            document.querySelectorAll(".fakeLink").forEach((div) => {
+              div.classList.remove("fakeLinkActive"); // make sure the previous div does not have the active tag
+              if (div.innerHTML == element.fields.Title) {
+                div.classList.add("fakeLinkActive");
+              }
+            });
+          });
+        }
+      }
+
+      //content side - display project
       function displayData(searchTitle) {
+        thumbnails.style.display = "none";
+        projectPage.style.display = "block";
         landingImg.setAttribute("src", "#");
         if (searchTitle == element.fields.Title) {
           if (element.fields.Feature) {
@@ -100,6 +141,19 @@ xhr.onreadystatechange = function () {
             link.href = linkText;
           } else link.style.display = "none";
 
+          mainImgContainer.replaceChildren(); //clear div
+          if (element.fields.BigImages) {
+            element.fields.BigImages.forEach((img) => {
+              //image loop
+              mainImgContainer.style.display = "flex";
+              let imgDiv = document.createElement("img");
+              imgDiv.setAttribute("class", "mainImg");
+              imgDiv.setAttribute("src", img.url);
+              console.log(img.url);
+              mainImgContainer.append(imgDiv);
+            });
+          } else mainImgContainer.style.display = "none";
+
           imgDivContainer.replaceChildren(); //clear div
           if (element.fields.Images) {
             element.fields.Images.forEach((img) => {
@@ -117,6 +171,7 @@ xhr.onreadystatechange = function () {
               });
             });
           } else imgDivContainer.style.display = "none";
+
           vidDivContainer.replaceChildren(); //clear div
           if (element.fields.Video) {
             element.fields.Video.forEach((vid) => {
