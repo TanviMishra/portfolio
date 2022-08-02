@@ -5,8 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="./styles/style.css" media="screen" />
-    <link rel="icon" type="image/x-icon" href="./assets/icons/SVG-ai/tmLogo-01.svg">
-    <title>Tanvi Mishra</title>
+    <link rel="stylesheet" type="text/css" href="./styles/resume.css" media="screen" />
+    <title>Tanvi Mishra | Resume</title>
+    <link rel="shortcut icon" href="./assets/icons/PNG/tm-logo.png" />
 </head>
 <body>
     <section id="menu"> <!--placeholder menu just for flex to work-->
@@ -26,6 +27,51 @@
             </div>
         </div>
     </section>  
+    <section id="content">
+      <button>
+          <svg xmlns="http://www.w3.org/2000/svg" id="theme-toggle" id="Layer_3" width="82.7227" height="158.2599" viewBox="0 0 82.7227 158.2599"><defs><style>.cls-1{fill:#dae596;}.cls-2{fill:#499254;}</style></defs><path id="light" class="cls-1" d="M68.3595,131.2618c0,14.9107-12.0875,26.9981-26.9981,26.9981s-26.9981-12.0875-26.9981-26.9981"/><rect id="handle" class="cls-2" x="39.7614" width="3.1999" height="84.3959"/><polygon id="body" class="cls-2" points="43.022 84.3959 39.7007 84.3959 0 131.2618 82.7227 131.2618 43.022 84.3959"/></svg>
+      </button> <!--dark/light mode-->
+      <div id="resumeHeadFoot">
+        <div class="flex-wrap space-btw">
+          <h1>RESUME</h1>
+        <button id="resumeDownload">Click to<br> Download</button> <!-- To do: -->
+        </div>
+        <hr>
+      </div>
+      <section id="resume" class="flex">
+        <section id="information">
+          <h1>Tanvi Mishra</h1>
+          <h3 id="bioInfo"></h3>
+          <div id="bioContact"></div>
+          <hr>
+          <h1 class="centerText">Skills</h1>
+          <h2>Software Skillset:</h2>
+          <div id="software" class="flex-wrap"></div>
+          <hr>
+          <h2>Programming Language:</h2>
+          <div id="programming" class="flex-wrap"></div>
+          <hr>
+          <h1 class="centerText">Honours</h1>
+          <ul id="honours"></ul>
+          <hr>
+          <h1 class="centerText">Online Profile</h1>
+          <ul id="links"></ul>
+        </section>
+        <section id="experience">
+          <h1>Experience</h1>
+          <div id="expSection"></div>
+        <hr>
+          <h1>Education</h1>
+          <div id="eduSection">
+            <div class="eduContainer"></div>
+          </div>
+        </section>
+      </section>
+      <div id="resumeHeadFoot">
+        <hr id="end">
+      </div>
+    </section>
 </body>
 <script src="./scripts/main.js"></script>
+<script src="./scripts/resumeManagement.js"></script>
 </html>

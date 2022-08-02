@@ -4,7 +4,7 @@ let indexContainer = document.querySelector("#projectIndex");
 let thumbnails = document.querySelector("#thumbnails"); //all thumbnails for project menu
 let previousArrow = document.querySelector("#previous");
 let nextArrow = document.querySelector("#next");
-let landingImg = document.querySelector("#landingImg");
+// let landingImg = document.querySelector("#landingImg");
 let title = document.querySelector("#title");
 let year = document.querySelector("#year");
 let prjType = document.querySelector("#prjType");
@@ -14,11 +14,14 @@ let rolesContainer = document.querySelector("#rolesContainer");
 let roles = document.querySelector("#roles");
 let link = document.querySelector("#link");
 let desc = document.querySelector("#desc");
+let workingSection = document.querySelector("#workingContainerSection");
+// let workingContainer = document.querySelector(".workingContainer");
 let imgDivContainer = document.querySelector("#processImgContainer");
 let mainImgContainer = document.querySelector("#mainImgContainer");
 let vidDivSection = document.querySelector("#processVidContainer");
 let vidDivContainer = document.querySelector("#vid");
 let photoContainer = document.querySelector("#photoCloseupContainer"); // for zooming in photo
+let photoCloseupCaption = document.querySelector("#photoCloseupCaption");
 let photoCloseup = document.querySelector("#photoCloseup");
 
 let searchTitle = "Sheer Contact";
@@ -40,11 +43,13 @@ xhr.setRequestHeader("Authorization", "Bearer keyOlZZOM1rKlBM3I");
 
 xhr.onreadystatechange = function () {
   if (xhr.readyState === 4) {
-    result = JSON.parse(xhr.responseText);
-    console.log(result);
+    result = JSON.parse(xhr.responseText); //formatting as json
+    console.log(result.records);
+    result.records.sort(
+      (a, b) => parseFloat(a.fields.Sr) - parseFloat(b.fields.Sr)
+    ); //sorting the array in ascending order according to sr. no
     result.records.forEach((element) => {
-      // displayData(result.records[result.records.length - 1].fields.Title); //Initial display
-      displayMenu(); //Initial display
+      displayMenu(); //Initial display of the thumbnails
       //project index
       let indexText = document.createElement("h4");
       projectTitleArray.push(element.fields.Title);
@@ -98,17 +103,16 @@ xhr.onreadystatechange = function () {
           });
         }
       }
-
       //content side - display project
       function displayData(searchTitle) {
         thumbnails.style.display = "none";
         projectPage.style.display = "block";
-        landingImg.setAttribute("src", "#");
+        // landingImg.setAttribute("src", "#");
         if (searchTitle == element.fields.Title) {
-          if (element.fields.Feature) {
-            landingImg.style.display = "block";
-            landingImg.setAttribute("src", element.fields.Feature[0].url);
-          } else landingImg.style.display = "none";
+          // if (element.fields.Feature) {
+          //   landingImg.style.display = "block";
+          //   landingImg.setAttribute("src", element.fields.Feature[0].url);
+          // } else landingImg.style.display = "none";
           //Compulsory feilds
           let titleText = element.fields.Title;
           let classifyText = element.fields.Classification;
@@ -141,6 +145,25 @@ xhr.onreadystatechange = function () {
             link.href = linkText;
           } else link.style.display = "none";
 
+          workingSection.replaceChildren(); //clear div
+          if (element.fields.GiantImages) {
+            workingSection.style.display = "block";
+            element.fields.GiantImages.forEach((img) => {
+              //image loop
+              console.log(img.url);
+              let containDiv = document.createElement("div");
+              let imgDiv = document.createElement("img");
+              let textDiv = document.createElement("h4");
+              containDiv.setAttribute("class", "workingContainer");
+              imgDiv.setAttribute("src", img.url);
+              imgDiv.setAttribute("class", "workingImg");
+              textDiv.innerHTML = img.filename;
+              textDiv.setAttribute("class", "workingCaption");
+              containDiv.append(imgDiv, textDiv);
+              workingSection.append(containDiv);
+            });
+          } else workingSection.style.display = "none";
+
           mainImgContainer.replaceChildren(); //clear div
           if (element.fields.BigImages) {
             element.fields.BigImages.forEach((img) => {
@@ -149,8 +172,13 @@ xhr.onreadystatechange = function () {
               let imgDiv = document.createElement("img");
               imgDiv.setAttribute("class", "mainImg");
               imgDiv.setAttribute("src", img.url);
-              console.log(img.url);
               mainImgContainer.append(imgDiv);
+              imgDiv.addEventListener("click", function () {
+                //zoom function
+                photoContainer.style.display = "flex";
+                photoCloseup.setAttribute("src", img.url);
+                photoCloseupCaption.innerHTML = img.filename;
+              });
             });
           } else mainImgContainer.style.display = "none";
 
@@ -165,9 +193,9 @@ xhr.onreadystatechange = function () {
               imgDivContainer.append(imgDiv);
               imgDiv.addEventListener("click", function () {
                 //zoom function
-                photoContainer.style.display = "block";
+                photoContainer.style.display = "flex";
                 photoCloseup.setAttribute("src", img.url);
-                console.log("clicked");
+                photoCloseupCaption.innerHTML = img.filename;
               });
             });
           } else imgDivContainer.style.display = "none";
@@ -191,23 +219,7 @@ xhr.onreadystatechange = function () {
     });
   }
 };
-// //click arrow keys to change content
-// previousArrow.addEventListener("click", function () {
-//   console.log(projectTitleArray, searchTitle);
-//   for (let index = 0; index < projectTitleArray.length; index++) {
-//     if (projectTitleArray[index] == searchTitle) {
-//       if ((index = 0)) searchIndex = projectTitleArray.length - 1;
-//       else searchIndex = index--;
-//       searchTitle = projectTitleArray[searchIndex];
-//       console.log(searchTitle);
-//     }
-//   }
-//   // console.log(searchTitle);
-//   // display()
-// });
-
 xhr.send();
-
 //when zoomed in
 photoContainer.addEventListener("click", function () {
   photoContainer.style.display = "none";

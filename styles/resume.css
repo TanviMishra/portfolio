@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap');
+:root {
+  --text: #212122;
+  --bg: #F6F7FF;
+  --accent:#499254;
+  --highlight:#c3da2e;
+  --underlay:#c3da2e2a;
+  --light:  #c3da2e2a;
+  --photoZoom:#f6f7ffef ;
+  --border: 1.5px;
+  --margin: 5vw;
+  --imgOpacity: 100%;
+}
+html[data-theme='dark'] {
+  --bg: #000000;
+  --text: #b5b6be;
+  --accent:#499254;
+  --highlight:#c3da2e;
+  --underlay:#f6f7ff0a;
+  --light: #c3da2e;
+  --photoZoom: #000000e0;
+  --border: 0.5px;
+  --margin: 5vw;
+  --imgOpacity: 100%;
+  --marginTop: 20px
+}
+html[data-theme='light'] {
+  --text: #212122;
+  --bg: #F6F7FF;
+  --accent:#499254;
+  --highlight:#c3da2e;
+  --underlay:#c3da2e0b;
+  --light:  #c3da2e2a;
+  --photoZoom: #f6f7ffef;
+  --border: 1.5px;
+  --margin: 5vw;
+  --imgOpacity: 100%;
+}
+* {
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+hr{
+    border: var(--border) solid var(--accent);
+    margin: var(--marginTop) 0;
+}
+ul{
+    padding: 0;
+    margin: 0 0 0 var(--marginTop);
+}
+ul li{
+    list-style-type: square;
+    padding: 0;
+    margin:6px 0 0 0;
+    font-size: 16px;
+    font-weight: 300;
+}
+#resume h1{
+    color: var(--accent);
+    font-size: 27px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.centerText{
+    text-align: center;
+}
+#resume h2{
+    color: var(--accent);
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase ;
+}
+#resume h3{
+    font-size: 16px;
+    font-weight: 700;
+}
+#resume h4{
+    font-size: 16px;
+    font-weight: 300;
+}
+#resume h5{
+    font-size: 16px;
+    font-weight: 300;
+    opacity: 70%;
+    margin: 6px 0 0 0;
+}
+#links a{
+    padding: 0;
+    margin: 6px 0 0 0;
+    font-size: 16px;
+    font-weight: 300;
+}
+#resumeDownload{
+    display: inline-block;
+    text-align: right;
+    vertical-align: middle;
+    padding: 4px 4px;
+    background: var(--accent);
+    color: var(--bg);
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+#resumeDownload:hover{
+    cursor: pointer;
+    background: var(--highlight);
+}
+#resumeHeadFoot{
+    width:90%;
+    margin: auto;
+    justify-content: space-between; 
+}
+.space-btw{
+    justify-content: space-between;
+}
+#resume{
+    width:90%;
+    margin: 0 auto;
+    color:var(--text);
+    justify-content: space-between;
+}
+.flex-wrap h4{
+    width: 50%;
+    justify-content: space-between;
+}
+#information{
+    width:42%;
+    height: fit-content;
+}
+#bioInfo{
+    margin: var(--marginTop) 0;
+}
+#software{
+    margin-top: var(--marginTop); 
+}
+#software h4{
+    margin: calc(var(--marginTop)/2) 0;
+}
+#programming{
+    margin-top: var(--marginTop);
+}
+#programming h4{
+    margin: calc(var(--marginTop)/2) 0;
+}
+#honours{
+    margin-top: var(--marginTop);
+}
+#links{
+    margin-top: var(--marginTop);
+}
+.linkContain{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    inline-size: 100%;
+    overflow-wrap: break-word;
+    margin: 6px 0;
+}
+.linksText{
+    width: 80%;
+}
+.linkImg{
+    width: 12%;
+    height: auto;
+    object-fit: contain;
+}
+#experience{
+    width:50%;
+    height: fit-content;
+}
+#expSection{
+    margin: var(--marginTop) 0;
+}
+.expContainer{
+    margin: var(--marginTop) 0;
+}
+#eduSection{
+    margin: var(--marginTop) 0;
+}
+.eduContainer{
+    margin: var(--marginTop) 0;
+}
+/* .smolContainer{
+    margin-left: 40px;
+} */
+#end{
+    margin-bottom: 100px;
+}

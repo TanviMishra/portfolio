@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="./styles/style.css" media="screen" />
-    <link rel="icon" type="image/x-icon" href="./assets/icons/SVG-ai/tmLogo-01.svg">
-    <title>Tanvi Mishra</title>
+    <title>Tanvi Mishra | Projects</title>
+    <link rel="shortcut icon" href="./assets/icons/PNG/tm-logo.png" />
 </head>
 <body>
     <section id="menu"> <!--placeholder menu just for flex to work-->
@@ -39,11 +39,11 @@
                 <h1 id="previous">←</h1>
                 <h1 id="next">→</h1>
             </div> -->
-            <img id="landingImg">
+            <!-- <img id="landingImg"> -->
             <div id="pageInfo">
+                <h2 id="title"></h2>
                 <div class="col2 flex">
                     <div id="brief">
-                        <h3 id="title"></h3>
                         <h3 id="year"></h3>
                         <h3 id="prjType"></h3>
                         <div id="creatorsContainer" class="flex-wrap">
@@ -58,21 +58,33 @@
                     </div>
                     <h4 id="desc"></h4>
             </div>
-            <div id="processImgSection">
+            <div id="workingContainerSection">
+            <div class="workingContainer"> 
+                <img class="workingImg">
+                <h4 class="workingCaption"></h4>
+            </div>
+            </div>
+            <div id="processVidContainer">
+                <h3>Video Documentation</h3>
+                <div id="vid"></div>
+            </div>
+            <div id="processImgSection" class="imageDisp">
                 <h3>Image Documentation</h3>
                 <div id="processImgDiv">
                     <div id="mainImgContainer"></div>
                     <div id="processImgContainer"></div>
                 </div>
             </div>
-            <div id="processVidContainer">
-                <h3>Video Documentation</h3>
-                <div id="vid"></div>
-            </div>
+            
         </section>
     </section>
     <section id="photoCloseupContainer">
-        <img id="photoCloseup">
+        <div id="photoCloseupDiv">
+            <div id="photoCloseupDiv">
+                <h4 id="photoCloseupCaption">Documentation photo</h4>
+            <img id="photoCloseup">
+            </div>
+        </div>
     </section>
 </body>
 <script src="./scripts/main.js"></script>
