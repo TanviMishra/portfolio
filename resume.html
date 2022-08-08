@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="./styles/style.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="./styles/resume.css" media="screen" />
     <title>Tanvi Mishra | Resume</title>
+    <script src="./scripts/libraries/jquery.min.js"></script>
     <link rel="shortcut icon" href="./assets/icons/PNG/tm-logo.png" />
 </head>
 <body>
@@ -38,40 +39,42 @@
         </div>
         <hr>
       </div>
-      <section id="resume" class="flex">
-        <section id="information">
-          <h1>Tanvi Mishra</h1>
-          <h3 id="bioInfo"></h3>
-          <div id="bioContact"></div>
+      <div id="divToDownload">
+        <div id="resume" class="flex">
+          <section id="information">
+            <h1>Tanvi Mishra</h1>
+            <h3 id="bioInfo"></h3>
+            <div id="bioContact"></div>
+            <a id="bioPortfolioLink"></a>
+            <hr>
+            <h1 class="centerText">Skills</h1>
+            <div id="skills" class="flex-wrap"></div>
+            <hr>
+            <h1 class="centerText">Honours</h1>
+            <ul id="honours"></ul>
+            <hr>
+            <h1 class="centerText">Online Profile</h1>
+            <ul id="links"></ul>
+          </section>
+          <section id="experience">
+            <h1>Experience</h1>
+            <div id="expSection"></div>
           <hr>
-          <h1 class="centerText">Skills</h1>
-          <h2>Software Skillset:</h2>
-          <div id="software" class="flex-wrap"></div>
-          <hr>
-          <h2>Programming Language:</h2>
-          <div id="programming" class="flex-wrap"></div>
-          <hr>
-          <h1 class="centerText">Honours</h1>
-          <ul id="honours"></ul>
-          <hr>
-          <h1 class="centerText">Online Profile</h1>
-          <ul id="links"></ul>
-        </section>
-        <section id="experience">
-          <h1>Experience</h1>
-          <div id="expSection"></div>
-        <hr>
-          <h1>Education</h1>
-          <div id="eduSection">
-            <div class="eduContainer"></div>
-          </div>
-        </section>
-      </section>
-      <div id="resumeHeadFoot">
-        <hr id="end">
-      </div>
+            <h1>Education</h1>
+            <div id="eduSection">
+              <div class="eduContainer"></div>
+            </div>
+          </section>
+        </div>
+     </div>
     </section>
 </body>
+<!--additional libraries to download resume-->
+<script src="./scripts/libraries/jspdf.debug.js"></script>
+<script src="./scripts/libraries/html2canvas.min.js"></script>
+<script src="./scripts/libraries/html2pdf.min.js"></script>
+
 <script src="./scripts/main.js"></script>
+<script src="./scripts/resumeDownload.js"></script>
 <script src="./scripts/resumeManagement.js"></script>
 </html>

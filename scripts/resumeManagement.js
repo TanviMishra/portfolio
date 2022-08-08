@@ -1,7 +1,7 @@
 let bioInfo = document.querySelector("#bioInfo");
 let bioContact = document.querySelector("#bioContact");
-let softwareDiv = document.querySelector("#software");
-let programmingDiv = document.querySelector("#programming");
+let bioPortfolioLink = document.querySelector("#bioPortfolioLink");
+let skillsDiv = document.querySelector("#skills");
 let honoursDiv = document.querySelector("#honours");
 let linksDiv = document.querySelector("#links");
 let expSection = document.querySelector("#expSection");
@@ -24,41 +24,41 @@ xhr.onreadystatechange = function () {
       //bio information
       if (element.fields.Category == "Bio" && element.fields.Sr > 0) {
         bioInfo.innerHTML = element.fields.Description;
-        let contactArray = element.fields.Contact.split("\n");
-        console.log(contactArray);
+        let contactArray = element.fields.Contact.split("\n"); //splitting all the sentences
+        // console.log(contactArray);
         contactArray.forEach((line) => {
           let bioLines = document.createElement("h4");
           // bioLines.setAttribute("class", "centerText");
           bioLines.innerHTML = line;
           bioContact.append(bioLines);
         });
+        bioPortfolioLink.innerHTML = element.fields.Portfolio;
+        bioPortfolioLink.setAttribute("src", element.fields.Portfolio);
+        // bioPortfolioLink.setAttribute("src", "https://www.netflix.com/browse"); //just a test
       }
       //software skills section
-      if (
-        element.fields.Category == "SoftwareSkills" &&
-        element.fields.Sr > 0
-      ) {
+      if (element.fields.Category == "Skills" && element.fields.Sr > 0) {
         let skill = document.createElement("h4");
         skillCount % 2 == 0 //aligning to left or right
           ? (skill.style.textAlign = "left")
           : (skill.style.textAlign = "right");
         skillCount++;
         skill.innerHTML = element.fields.JobTitle;
-        softwareDiv.append(skill);
+        skillsDiv.append(skill);
       }
-      //programming skills section
-      if (
-        element.fields.Category == "ProgrammingLanguage" &&
-        element.fields.Sr > 0
-      ) {
-        let language = document.createElement("h4");
-        language.innerHTML = element.fields.JobTitle;
-        langCount % 2 == 0 //aligning to left or right
-          ? (language.style.textAlign = "left")
-          : (language.style.textAlign = "right");
-        langCount++;
-        programmingDiv.append(language);
-      }
+      // //programming skills section
+      // if (
+      //   element.fields.Category == "ProgrammingLanguage" &&
+      //   element.fields.Sr > 0
+      // ) {
+      //   let language = document.createElement("h4");
+      //   language.innerHTML = element.fields.JobTitle;
+      //   langCount % 2 == 0 //aligning to left or right
+      //     ? (language.style.textAlign = "left")
+      //     : (language.style.textAlign = "right");
+      //   langCount++;
+      //   programmingDiv.append(language);
+      // }
       //honours section
       if (element.fields.Category == "Honours" && element.fields.Sr > 0) {
         let honours = document.createElement("li");
@@ -69,17 +69,17 @@ xhr.onreadystatechange = function () {
       }
       //links section
       if (element.fields.Category == "Links" && element.fields.Sr > 0) {
-        console.log(element.fields);
+        // console.log(element.fields);
         let logoDiv = document.createElement("div");
         logoDiv.setAttribute("class", "linkContain");
         let link = document.createElement("a");
         link.setAttribute("class", "linksText");
-        let linkImg = document.createElement("img");
-        linkImg.setAttribute("class", "linkImg");
-        linkImg.setAttribute("src", element.fields.Logo[0].url);
+        // let linkImg = document.createElement("img");
+        // linkImg.setAttribute("class", "linkImg");
+        // linkImg.setAttribute("src", element.fields.Logo[0].url);
         link.href = element.fields.Description;
         link.innerHTML = element.fields.Description;
-        logoDiv.append(linkImg, link);
+        logoDiv.append(link); //if you want to include img, uncomment linkImg lines and change this line to logoDiv.append(linkImg, link) + change .linksText in CSS
         linksDiv.append(logoDiv);
       }
       //experience section
