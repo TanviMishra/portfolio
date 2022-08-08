@@ -28,3 +28,17 @@ img{
 .dot:hover {
     background-color: #717171
 }
+/* responsive design */
+@media only screen and (max-width: 768px) {
+    #menuContent {
+      width: 50vw;
+    }
+  }
+  @media only screen and (max-width: 375px) {
+    #menu {
+        display: block;
+      }
+    #menuContent {
+        width: 70vw !important;
+    }
+  }

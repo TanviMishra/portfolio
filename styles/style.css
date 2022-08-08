@@ -260,6 +260,9 @@ button{
 #title{
   text-transform: uppercase;
 }
+#descHead{
+  display: none;
+}
 #desc{
   width: 50%;
 }
@@ -350,7 +353,6 @@ button{
   background-color: black;
 }
 #photoCloseupContainer{
-  /* display: none; */
   display: none;
   position: fixed;
   top:0;
@@ -358,6 +360,7 @@ button{
   width:100vw;
   height:100vh;
   background-color: var(--photoZoom);
+  border: var(--border) solid var(--accent);
   z-index: 3;
   cursor: zoom-out;
 }
@@ -376,4 +379,101 @@ button{
   width:auto;
   margin: 20px 0 0 0;
   object-fit: contain;
+}
+/* responsive design */
+@media only screen and (max-width: 768px) {
+  h2{
+    font-size: 25px;
+  }
+  h3{
+    font-size: 14px;
+  }
+  h4{
+    font-size: 14px;
+  }
+  p{
+    font-size: 14px;
+  }
+  #menu {
+    width: 40vw;
+  }
+  #menuContent {
+    width: 40vw;
+  }
+  #content{
+    margin-top: calc(var(--margin)*1.5);
+    width: 60vw;
+  }
+  #thumbnails{
+    display: block;
+  }
+  .col2{
+    display: block !important;
+    width: 100%;
+  }
+  #brief{
+    width: 100%;
+  }
+  #descHead{
+    margin-top: var(--margin);
+    display: block;
+  }
+  #desc{
+    width: 100%;
+  }
+  .header{
+      padding-right: var(--margin);
+  }
+  .processVid{
+    width: 100%;
+    height: 160px;
+  }
+  #photoCloseup{
+    width:80vw;
+    object-fit: contain;
+  }
+  .workingContainerSection{
+    margin: var(--margin);
+    height: fit-content;
+  }
+  .workingContainer{
+    display: block;
+  }
+  .workingImg{
+    width: 90%;
+  }
+  .workingCaption{
+    width:90%;
+    /* margin-left: 35%; */
+  }
+  #me{
+    margin-top: var(--margin);
+  }
+  #landingImg{
+    height: 250px;
+  }
+}
+@media only screen and (max-width: 375px) {
+  #menu {
+    display: none;
+  }
+  h3{
+    font-size: 13px;
+  }
+  h4{
+    font-size: 13px;
+  }
+  p{
+    font-size: 13px;
+  }
+  #content{
+    margin-top: calc(var(--margin)*3);
+    width: 100vw;
+  }
+  .header{
+    padding-right: var(--margin);
+  }
+  #landingImg{
+    height: 200px;
+  }
 }

@@ -135,6 +135,13 @@ ul li{
 #bioInfo{
     margin: var(--marginTop) 0;
 }
+#bioContact{
+    width: 100%;
+    word-wrap: break-word;
+}
+#bioPortfolioLink{
+    word-wrap: break-word;
+}
 #skills{
     margin-top: var(--marginTop); 
 }
@@ -188,4 +195,17 @@ ul li{
 }
 /* .smolContainer{
     margin-left: 40px;
-} *
+} */
+@media only screen and (max-width: 375px) {
+  #resume{
+    flex-direction: column !important;
+    width:90%;
+    margin: 0 auto;
+  }
+  #information{
+    width: 100%;
+  }
+  #experience{
+    width: 100%;
+  }
+}
