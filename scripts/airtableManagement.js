@@ -145,7 +145,7 @@ xhr.onreadystatechange = function () {
             link.href = linkText;
           } else link.style.display = "none";
 
-          // workingSection.replaceChildren(); //clear div
+          workingSection.replaceChildren(); //clear div
           if (element.fields.GiantImages) {
             workingSection.style.display = "block";
             element.fields.GiantImages.forEach((img) => {
@@ -164,7 +164,7 @@ xhr.onreadystatechange = function () {
             });
           } else workingSection.style.display = "none";
 
-          // mainImgContainer.replaceChildren(); //clear div
+          mainImgContainer.replaceChildren(); //clear div
           if (element.fields.BigImages) {
             element.fields.BigImages.forEach((img) => {
               //image loop
@@ -182,7 +182,7 @@ xhr.onreadystatechange = function () {
             });
           } else mainImgContainer.style.display = "none";
 
-          // imgDivContainer.replaceChildren(); //clear div
+          imgDivContainer.replaceChildren(); //clear div
           if (element.fields.Images) {
             element.fields.Images.forEach((img) => {
               //image loop
@@ -200,7 +200,7 @@ xhr.onreadystatechange = function () {
             });
           } else imgDivContainer.style.display = "none";
 
-          // vidDivContainer.replaceChildren(); //clear div
+          vidDivContainer.replaceChildren(); //clear div
           if (element.fields.Video) {
             element.fields.Video.forEach((vid) => {
               //video loop
