@@ -1,6 +1,6 @@
 const screen = {
   small: 0,
-  medium: 375,
+  medium: 500,
   large: 768,
 };
 let meText2 = document.querySelector("#meText2");
