@@ -35,7 +35,7 @@ img{
       width: 50vw;
     }
   }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 500px) {
     #menu {
         width: 70vw;
         /* position: fixed; */
