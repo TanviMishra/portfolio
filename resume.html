@@ -13,6 +13,9 @@
 <body>
     <section id="menu"> <!--placeholder menu just for flex to work-->
         <div id="menuContent"> <!-- position fixed-->
+          <button>
+            <svg id="hamburgerCloseIcon" xmlns="http://www.w3.org/2000/svg" width="125.28" height="44.99" viewBox="0 0 125.28 44.99"><rect x="-6.99" y="20.17" width="58.97" height="4.66" transform="translate(-9.32 22.5) rotate(-45)" fill="#5c8f5a"/><rect x="-6.99" y="20.17" width="58.97" height="4.66" transform="translate(22.5 54.31) rotate(-135)" fill="#5c8f5a"/></svg>
+          </button>
             <div class="flex">  <!-- To do: responsive-->
               <a href="./index.html"><svg xmlns="http://www.w3.org/2000/svg" id="portfolioLogo" width="444.5719" height="444.5719" viewBox="0 0 444.5719 444.5719"><defs><style>.cls-1{fill:#499254;}</style></defs><path class="cls-1" d="M0,0V444.5719H444.5719V0H0ZM245.7154,292.5477c-.0043,1.7837-.5748,3.52-1.6292,4.9586-2.7495,3.7512-8.0196,4.563-11.7707,1.8135l-58.8565-43.2919v158.6442h-49.7341c-11.6245,0-21.048-9.4236-21.048-21.0481V210.7379l-.0002-.0007v.4526l-65.4017-48.1468c-4.3108-3.1707-6.8557-8.2032-6.8547-13.5544V79.5618l72.2564,49.7032v.4988l.0002,.0002v-.5402l143.0386,98.0665v65.2574Zm168.4363,100.767c0,11.7913-9.5557,21.3517-21.347,21.3574h-49.4249v-158.6133l-58.8462,43.2919c-1.4387,1.0545-3.1748,1.625-4.9585,1.6293-4.651,.011-8.4303-3.7504-8.4414-8.4014v-65.2883l143.0179-98.0665V393.3148Z"/></svg></a>
               <h1><a href="./index.html">Tanvi Mishra</a></h1>
@@ -28,10 +31,13 @@
             </div>
         </div>
     </section>  
-    <section id="content">
+    <section id="content"> <!--content, resumeHeadFoot, resume changed in responsive.js for mobile view-->
       <button>
           <svg xmlns="http://www.w3.org/2000/svg" id="theme-toggle" id="Layer_3" width="82.7227" height="158.2599" viewBox="0 0 82.7227 158.2599"><defs><style>.cls-1{fill:#dae596;}.cls-2{fill:#499254;}</style></defs><path id="light" class="cls-1" d="M68.3595,131.2618c0,14.9107-12.0875,26.9981-26.9981,26.9981s-26.9981-12.0875-26.9981-26.9981"/><rect id="handle" class="cls-2" x="39.7614" width="3.1999" height="84.3959"/><polygon id="body" class="cls-2" points="43.022 84.3959 39.7007 84.3959 0 131.2618 82.7227 131.2618 43.022 84.3959"/></svg>
       </button> <!--dark/light mode-->
+      <button>
+        <svg  id="hamburgerIcon" xmlns="http://www.w3.org/2000/svg" alt="open hamburger menu" width="125.28" height="44.99" viewBox="0 0 125.28 44.99"><rect x="70.72" y="20.17" width="54.56" height="4.66" fill="#5c8f5a"/><rect x="70.72" y="38.8" width="54.56" height="4.66" transform="translate(195.99 82.26) rotate(180)" fill="#5c8f5a"/><rect x="70.72" y="1.53" width="54.56" height="4.66" transform="translate(195.99 7.72) rotate(180)" fill="#5c8f5a"/></svg>
+      </button>
       <div id="resumeHeadFoot">
         <div class="flex-wrap space-btw">
           <h1>RESUME</h1>
@@ -75,6 +81,7 @@
 <script src="./scripts/libraries/html2pdf.min.js"></script>
 
 <script src="./scripts/main.js"></script>
+<script src="./scripts/responsive.js"></script>
 <script src="./scripts/resumeDownload.js"></script>
 <script src="./scripts/resumeManagement.js"></script>
 </html>

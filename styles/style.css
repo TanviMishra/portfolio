@@ -4,9 +4,10 @@
   --bg: #F6F7FF;
   --accent:#499254;
   --highlight:#c3da2e;
-  --underlay:#c3da2e2a;
+  --underlay:#c3da2e0b;
+  --mobileMenu:#499254ba;
   --light:  #c3da2e2a;
-  --photoZoom:#f6f7ffef ;
+  --photoZoom: #f6f7ffef;
   --border: 1.5px;
   --margin: 5vw;
   --imgOpacity: 100%;
@@ -17,6 +18,7 @@ html[data-theme='dark'] {
   --accent:#499254;
   --highlight:#c3da2e;
   --underlay:#f6f7ff0a;
+  --mobileMenu:#499254ba;
   --light: #c3da2e;
   --photoZoom: #000000e0;
   --border: 0.5px;
@@ -30,6 +32,7 @@ html[data-theme='light'] {
   --accent:#499254;
   --highlight:#c3da2e;
   --underlay:#c3da2e0b;
+  --mobileMenu:#499254ba;
   --light:  #c3da2e2a;
   --photoZoom: #f6f7ffef;
   --border: 1.5px;
@@ -93,6 +96,15 @@ img{
 #wave-underline{
   text-decoration-line: underline;
   text-decoration-style: wavy;
+}
+#coverImg{
+  width:100vw;
+  height: 100vh;
+  position: fixed;
+  top:0;
+  left:0;
+  object-fit: cover;
+  z-index: -1;
 }
 #menu{ 
   width: 30vw;
@@ -361,7 +373,7 @@ button{
   height:100vh;
   background-color: var(--photoZoom);
   border: var(--border) solid var(--accent);
-  z-index: 3;
+  z-index: 5;
   cursor: zoom-out;
 }
 #photoCloseupDiv{
@@ -454,8 +466,49 @@ button{
   }
 }
 @media only screen and (max-width: 375px) {
+  body{
+    display: block;
+  }
+  #hamburgerIcon{
+    width:70px;
+    height:auto;
+    position: fixed;
+    top:calc(var(--margin)*2);
+    left:calc(var(--margin)*0.75);
+    object-fit: contain;
+    z-index: 3;
+  }
+  #hamburgerIcon:hover rect{
+    fill: var(--highlight); 
+    cursor: pointer;
+  }
+  #hamburgerCloseIcon {
+    width:70px;
+    height:auto;
+    object-fit: contain;
+    margin-bottom: var(--margin) ;
+  }
+  #hamburgerCloseIcon rect{
+    fill: var(--bg); 
+  }
+  #hamburgerCloseIcon:hover rect{
+    fill: var(--highlight); 
+    cursor: pointer;
+  }
   #menu {
+    width: 90vw;
+    position: fixed;
     display: none;
+  }
+  #menuContent {
+    width: 90vw;
+    background-color:var(--accent);
+    color: var(--bg);
+    display: block;
+    position: fixed;
+    top:0;
+    left: 0;
+    z-index: 4;
   }
   h3{
     font-size: 13px;
@@ -475,5 +528,11 @@ button{
   }
   #landingImg{
     height: 200px;
+  }
+  .logos path{
+    fill: var(--bg);
+  }
+  #portfolioLogo path{
+    fill: var(--bg);
   }
 }
