@@ -163,6 +163,7 @@ xhr.onreadystatechange = function () {
               imgDiv.setAttribute("src", img.url);
               imgDiv.setAttribute("class", "workingImg");
               textDiv.innerHTML = img.filename;
+              imgDiv.setAttribute("alt", textDiv.innerHTML);
               textDiv.setAttribute("class", "workingCaption");
               containDiv.append(imgDiv, textDiv);
               workingSection.append(containDiv);
@@ -180,6 +181,7 @@ xhr.onreadystatechange = function () {
               let textDiv = document.createElement("h5");
               textDiv.setAttribute("class", "mainImgCaption");
               textDiv.innerHTML = img.filename;
+              imgDiv.setAttribute("alt", textDiv.innerHTML);
               mainImgContainer.append(imgDiv, textDiv);
               imgDiv.addEventListener("click", function () {
                 //zoom function
@@ -203,6 +205,7 @@ xhr.onreadystatechange = function () {
               let textDiv = document.createElement("h5");
               textDiv.setAttribute("class", "processImgCaption");
               textDiv.innerHTML = img.filename;
+              imgDiv.setAttribute("alt", textDiv.innerHTML);
               imgDivWrapper.append(imgDiv, textDiv);
               imgDivContainer.append(imgDivWrapper);
               imgDiv.addEventListener("click", function () {
