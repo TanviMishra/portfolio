@@ -110,6 +110,9 @@ ul li{
     cursor: pointer;
     background: var(--highlight);
 }
+#buttonLink:hover{
+    color: var(--bg) !important;
+}
 #resumeHeadFoot{
     width:90%;
     margin: auto;

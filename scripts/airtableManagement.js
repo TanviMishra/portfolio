@@ -23,7 +23,7 @@ let vidDivContainer = document.querySelector("#vid");
 let photoContainer = document.querySelector("#photoCloseupContainer"); // for zooming in photo
 let photoCloseupCaption = document.querySelector("#photoCloseupCaption");
 let photoCloseup = document.querySelector("#photoCloseup");
-
+let blocks = document.querySelector("section.shapes"); //blocks container //to display on menu and hide during project page
 let searchTitle = "Sheer Contact";
 let projectTitleArray = [];
 var myHeaders = new Headers();
@@ -74,12 +74,15 @@ xhr.onreadystatechange = function () {
       function displayMenu() {
         thumbnails.style.display = "flex";
         projectPage.style.display = "none";
+        blocks.style.display = "block";
         if (element.fields.Feature) {
           let containerDiv = document.createElement("div");
           containerDiv.setAttribute("class", "thumbnail-wrapper");
-          let imgDiv = document.createElement("img");
-          imgDiv.setAttribute("class", "thumbnail-img");
-          imgDiv.setAttribute("src", element.fields.Feature[0].url);
+          let imgDiv = document.createElement("div");
+          imgDiv.setAttribute("class", "thumbnail-img-wrapper");
+          let img = document.createElement("img");
+          img.setAttribute("class", "thumbnail-img");
+          img.setAttribute("src", element.fields.Feature[0].url);
           let textDiv = document.createElement("div");
           textDiv.setAttribute("class", "thumbnail-text");
           let title = document.createElement("h3");
@@ -89,6 +92,7 @@ xhr.onreadystatechange = function () {
           classify.innerHTML = element.fields.Classification + " | ";
           classify.innerHTML += element.fields.Year;
           textDiv.append(title, classify); //layer 1
+          imgDiv.append(img); //layer 1
           containerDiv.append(imgDiv, textDiv); //layer 2
           thumbnails.append(containerDiv); //layer 3
           containerDiv.addEventListener("click", function () {
@@ -107,6 +111,7 @@ xhr.onreadystatechange = function () {
       function displayData(searchTitle) {
         thumbnails.style.display = "none";
         projectPage.style.display = "block";
+        blocks.style.display = "none";
         // landingImg.setAttribute("src", "#");
         if (searchTitle == element.fields.Title) {
           // if (element.fields.Feature) {
@@ -172,7 +177,10 @@ xhr.onreadystatechange = function () {
               let imgDiv = document.createElement("img");
               imgDiv.setAttribute("class", "mainImg");
               imgDiv.setAttribute("src", img.url);
-              mainImgContainer.append(imgDiv);
+              let textDiv = document.createElement("h5");
+              textDiv.setAttribute("class", "mainImgCaption");
+              textDiv.innerHTML = img.filename;
+              mainImgContainer.append(imgDiv, textDiv);
               imgDiv.addEventListener("click", function () {
                 //zoom function
                 photoContainer.style.display = "flex";
@@ -187,10 +195,16 @@ xhr.onreadystatechange = function () {
             element.fields.Images.forEach((img) => {
               //image loop
               imgDivContainer.style.display = "flex";
+              let imgDivWrapper = document.createElement("div");
+              imgDivWrapper.setAttribute("class", "processImgWrapper");
               let imgDiv = document.createElement("img");
               imgDiv.setAttribute("class", "processImg");
               imgDiv.setAttribute("src", img.url);
-              imgDivContainer.append(imgDiv);
+              let textDiv = document.createElement("h5");
+              textDiv.setAttribute("class", "processImgCaption");
+              textDiv.innerHTML = img.filename;
+              imgDivWrapper.append(imgDiv, textDiv);
+              imgDivContainer.append(imgDivWrapper);
               imgDiv.addEventListener("click", function () {
                 //zoom function
                 photoContainer.style.display = "flex";

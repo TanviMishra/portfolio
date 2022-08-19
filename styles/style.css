@@ -76,6 +76,12 @@ h4{
 .h4bold{
   font-weight: 500;
 }
+h5{
+  font-weight:100;
+  font-size: 12px;
+  margin: 6px 0 0 0;
+  opacity: 70%;
+}
 p {
   font-weight: 300;
   font-size: 16px;
@@ -104,7 +110,7 @@ img{
   top:0;
   left:0;
   object-fit: cover;
-  z-index: -1;
+  z-index: -2;
 }
 #menu{ 
   width: 30vw;
@@ -188,7 +194,7 @@ img{
 #content{
   width: 70vw;
   height: fit-content;
-  background-color: var(--bg);
+  /* background-color: var(--bg); */
   padding: var(--margin);
 }
 #test{
@@ -212,28 +218,35 @@ button{
 }
 #thumbnails{
   justify-content: space-between;
-  width: 80%;
+  width: 85%;
   margin: auto;
   color: var(--text);
 }
 .thumbnail-wrapper{
-  /* display: flex;
-  align-items: flex-end; */
-  width: 47%;
-  height: fit-content;
-  margin-bottom: 50px;
+  width: 46%;
+  height: auto;
+  margin-bottom: 35px;
 }
 .thumbnail-wrapper:hover{
   color: var(--highlight);
-  opacity: 80%;
   cursor: pointer;
+}
+.thumbnail-wrapper:hover .thumbnail-img {
+  transform: scale(1.1);
+}
+.thumbnail-img-wrapper{
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border: var(--border) solid var(--accent);
+  margin-bottom: 10px;
 }
 .thumbnail-img{
   width: 100%;
   height: 100%;
+  /* opacity: 85%; */
   object-fit: cover;
-  border: var(--border) solid var(--accent);
-  margin-bottom: 5px;
+  transition: all .3s ease;
+  object-fit: cover;
 }
 #projectPage{
   display: none;
@@ -313,7 +326,7 @@ button{
 }
 #processImgDiv{
   width: 100%;
-  height: fit-content;
+  height: auto;
 }
 #mainImgContainer{
   width:100%;
@@ -324,11 +337,13 @@ button{
 .mainImg{
   width:100%;
   height: 100%;
-  margin-bottom: 40px;
   border: var(--border) solid var(--accent);
 }
 .mainImg:hover{
   cursor: zoom-in;
+}
+.mainImgCaption{
+  margin-bottom: 30px;
 }
 #processImgContainer{
   width: 100%;
@@ -337,12 +352,18 @@ button{
   flex-wrap: wrap;
   justify-content: space-between;
 }
-.processImg{
-  margin-bottom: 40px;
+.processImgWrapper{
   width:47%;
-  height: 100%;
+  height: fit-content;
+}
+.processImg{
+  width: 100%;
+  height: auto;
   border: var(--border) solid var(--accent);
   object-fit: cover;
+}
+.processImgCaption{
+  margin-bottom: 30px;
 }
 .processImg:hover{
   cursor: zoom-in;
@@ -392,6 +413,20 @@ button{
   margin: 20px 0 0 0;
   object-fit: contain;
 }
+/* for the click rectangles */
+.shapes{
+  /* background-color: #b5b6be; */
+  position: fixed;
+  top:0;
+  left:0;
+  width: 100vw;
+  height: 100vh;
+  opacity: 60%;
+  z-index: -1;
+}
+.shapes canvas{
+  background-color: transparent !important;
+} 
 /* responsive design */
 @media only screen and (max-width: 768px) {
   h2{
