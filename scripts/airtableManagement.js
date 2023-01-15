@@ -139,7 +139,7 @@ xhr.onreadystatechange = function () {
             let creatorsText = element.fields.Creators; //To do: make them linkable
             creators.innerHTML = creatorsText;
           } else creatorsContainer.style.display = "none";
-          if (element.fields.Creators) {
+          if (element.fields.Roles) {
             rolesContainer.style.display = "flex";
             let rolesText = element.fields.Roles;
             roles.innerHTML = rolesText;
