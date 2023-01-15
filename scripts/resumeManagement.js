@@ -23,7 +23,7 @@ xhr.onreadystatechange = function () {
     result.records.forEach((element) => {
       //bio information
       if (element.fields.Category == "Bio" && element.fields.Sr > 0) {
-        bioInfo.innerHTML = element.fields.Description;
+        // bioInfo.innerHTML = element.fields.Description;
         let contactArray = element.fields.Contact.split("\n"); //splitting all the sentences
         // console.log(contactArray);
         contactArray.forEach((line) => {
@@ -80,7 +80,7 @@ xhr.onreadystatechange = function () {
         link.href = element.fields.Description;
         link.innerHTML = element.fields.Description;
         logoDiv.append(link); //if you want to include img, uncomment linkImg lines and change this line to logoDiv.append(linkImg, link) + change .linksText in CSS
-        linksDiv.append(logoDiv);
+        // linksDiv.append(logoDiv); //UNCOMMENT TO MAKE LINKS APPEAR  //ALSO UNCOMMENT "Online Profile" in resume.html
       }
       //experience section
       if (element.fields.Category == "Experience" && element.fields.Sr > 0) {
@@ -160,15 +160,17 @@ xhr.onreadystatechange = function () {
     degree.setAttribute("class", "eduDegree");
     degree.innerHTML = degreeText;
 
-    let gpa = document.createElement("h4");
-    gpa.setAttribute("class", "eduGPA");
-    gpa.innerHTML = GPA;
+    let gpa_time = document.createElement("h4");
+    gpa_time.setAttribute("class", "eduGpa_time");
+    !GPA ? (GPA = "") : (GPA += " | ");
+
+    gpa_time.innerHTML = GPA + timeText;
 
     let time = document.createElement("h4");
     time.setAttribute("class", "timeText");
     time.innerHTML = timeText;
 
-    smolContain.append(loc, degree, gpa, time);
+    smolContain.append(loc, degree, gpa_time);
     container.append(title, smolContain);
     eduSection.append(container);
   }
