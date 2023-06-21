@@ -276,6 +276,10 @@ button{
   height: fit-content;
   justify-content: space-between;
 }
+#profile{
+  width: 30%;
+  height: auto;
+}
 #contactDiv{
   margin-right: 20px;
 }
