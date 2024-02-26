@@ -39,7 +39,12 @@ var url = "https://api.airtable.com/v0/appLyBqfz6jajKyYp/test";
 var xhr = new XMLHttpRequest();
 xhr.open("GET", url);
 
-xhr.setRequestHeader("Authorization", "Bearer keyOlZZOM1rKlBM3I");
+//xhr.setRequestHeader("Authorization", "Bearer keyOlZZOM1rKlBM3I"); //OLD KEY
+
+xhr.setRequestHeader(
+  "Authorization",
+  "Bearer patdFC03sguo4qNzO.dd03685084e41d418babe4c8d3044454a048919caece365422447db906523ec4"
+);
 
 xhr.onreadystatechange = function () {
   if (xhr.readyState === 4) {
