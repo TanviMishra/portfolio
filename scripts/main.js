@@ -1,6 +1,5 @@
 //domain name linkage: https://www.youtube.com/watch?v=2K7asqt8wMw
 let toggle = document.getElementById("theme-toggle");
-let svg = document.getElementById("theme-svg");
 
 let storedTheme =
   localStorage.getItem("theme") ||
