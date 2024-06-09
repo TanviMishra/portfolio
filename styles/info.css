@@ -1,0 +1,33 @@
+:root {
+    --margin: 100px;
+    --default_padding: 30px;
+  }
+
+h3{margin: var(--default_padding) 0 0 0;}
+p{
+    font-weight: 300;
+    font-size: 13px;
+    margin: 10px 0 var(--default_padding) 0;
+}
+#footer p{
+    margin:0;
+}
+li{
+    font-weight: 300;
+    font-size: 13px;
+    margin: 10px 0 0 0;
+}
+#contactDiv .small_p{
+    margin-top: 0;
+}
+#profile{
+    width: 15%;
+    height: fit-content;
+    position: fixed;
+    top: calc(1.5*var(--margin));
+    right: var(--margin);
+}
+#contactDiv{
+    width: 70%;
+    padding-right: var(--default_padding)
+}

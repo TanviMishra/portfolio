@@ -3,7 +3,7 @@ let toggle = document.getElementById("theme-toggle");
 
 let storedTheme =
   localStorage.getItem("theme") ||
-  (window.matchMedia("(prefers-color-scheme: light)").matches
+  (window.matchMedia("(prefers-color-scheme: dark)").matches //set default to light but checks if someone's prefered theme is dark and changes
     ? "light"
     : "dark");
 if (storedTheme)
@@ -15,13 +15,12 @@ toggle.onclick = function () {
   if (currentTheme === "dark") {
     targetTheme = "light";
   }
-
   document.documentElement.setAttribute("data-theme", targetTheme);
   localStorage.setItem("theme", targetTheme);
 };
 toggle.onmouseover = function () {
-  toggle.style.marginTop = "-30px";
+  toggle.style.marginTop = "-10px";
 };
 toggle.onmouseleave = function () {
-  toggle.style.marginTop = "-65px";
+  toggle.style.marginTop = "-35px";
 };

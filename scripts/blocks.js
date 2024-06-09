@@ -46,11 +46,12 @@ addEventListener("mousemove", (event) => {
 });
 
 var mouseDown = false;
-addEventListener("mousedown", function () {
+addEventListener("click", function () {
   mouseDown = true;
   addRect();
+  mouseDown = false;
 });
-addEventListener("mouseup", function () {
+addEventListener("dblclick", function () {
   mouseDown = false;
 });
 
